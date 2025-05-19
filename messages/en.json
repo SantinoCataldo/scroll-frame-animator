@@ -1,0 +1,88 @@
+{
+  "intro": {
+    "title": "Scroll Frame Animation",
+    "description": "Scroll down to see the animation in action. This component creates a frame-by-frame animation controlled by the scroll position of the page. As you scroll down, the component transitions between individual image frames, creating a smooth, cinematic effect without using video files."
+  },
+  "outro": {
+    "title": "Animation Completed",
+    "description": "Thank you for viewing the demonstration. This technique leverages individual image frames instead of video files, giving you precise control over playback speed through scrolling. The frames are preloaded for optimal performance, and the image remains fixed in the viewport while you scroll through the animation section."
+  },
+  "frameRequirements": {
+    "title": "Frame Requirements",
+    "description": "To use this component, you'll need to prepare a sequence of image frames that represent your animation:",
+    "point1": "Extract frames from a video using software like Adobe Premiere, After Effects, or free tools like FFMPEG",
+    "point2": "Name your frames sequentially (e.g., frame-001.png, frame-002.png, etc.)",
+    "point3": "Place all frames in a public directory accessible to your application",
+    "point4": "For optimal performance, compress your images and consider using WebP format",
+    "point5": "Typically 30-60 frames are sufficient for most animations"
+  },
+  "examples": {
+    "fullWidthTitle": "Full Width Animation",
+    "fullWidthDesc": "Content can be overlaid directly on top of a full-width animation. This is perfect for hero sections or introductory content.",
+    
+    "halfWidthRightTitle": "Animation on Right",
+    "halfWidthRightDesc": "When the animation takes 50% width and is positioned on the right, you can place content on the left side.",
+    "contentPositioning1": "Content is automatically positioned opposite to the animation",
+    "contentPositioning2": "You can style your content however you like",
+    "contentPositioning3": "The component handles the layout automatically",
+    
+    "halfWidthLeftTitle": "Animation on Left",
+    "halfWidthLeftDesc": "Alternatively, you can position the animation on the left and your content on the right.",
+    "flexibility1": "Adjust width, height, and position as needed",
+    "flexibility2": "Content can contain any React elements",
+    "flexibility3": "Children are rendered in a container next to the animation"
+  },
+  "usage": {
+    "viewCode": "View Component Code",
+    "viewOnGithub": "View on GitHub",
+    "howToUseTitle": "How to Use This Component",
+    "step1": "Extract frames from your video and save them in a sequential manner in your public folder",
+    "step2": "Install the component in your Next.js or React project",
+    "step3": "Import the ScrollFrameAnimator component into your page",
+    "step4": "Configure the component with your frame details and animation preferences",
+    "propsTitle": "Component Properties",
+    "propName": "Property",
+    "propType": "Type",
+    "propDefault": "Default",
+    "propDescription": "Description",
+    "framesCountDesc": "Total number of frames in the animation",
+    "framesPathDesc": "Path to the folder containing the frame images",
+    "framePrefixDesc": "Filename prefix for each frame",
+    "frameExtensionDesc": "File extension of the frame images",
+    "animationSectionHeightDesc": "Height of the animation section (controls scroll length)",
+    "widthDesc": "Width of the animation frame (CSS value like '100%', '400px', etc.)",
+    "heightDesc": "Height of the animation frame (CSS value like '100dvh', '400px', etc.)",
+    "positionDesc": "Horizontal position of the animation ('left', 'right', or 'center')",
+    "objectFitDesc": "How the animation frames should be resized to fit their container",
+    "contentPositionDesc": "Where to position content provided as children ('left', 'right', 'center', or 'overlay')",
+    "contentModeDesc": "How to position the content: 'overlay' (on top of the animation) or 'side' (next to the animation, automatically adapts)",
+    "backgroundDesc": "Background color or image for the animation section (any valid CSS background value)",
+    "componentCode": "Component Code Example",
+    "inYourComponent": "In your component:",
+    "copyCode": "Copy Code",
+    "codeCopied": "Code copied to clipboard!",
+    "implementationDetailsTitle": "How It Works",
+    "implementationDetails": "The ScrollFrameAnimator works by tracking the user's scroll position within the animation section. Instead of playing a video, it displays individual image frames that change based on scroll position. The component calculates which frame to show based on the scroll progress, creating a smooth animation effect that the user can control. All frames are preloaded into memory for instantaneous transitions between images.",
+    "technicalDetailsTitle": "Technical Details",
+    "technicalDetails": "This component uses individual image frames rather than video files, which allows for precise control over playback via scroll position. The scroll-driven animation approach offers several advantages: consistent performance across devices, non-reliance on video codecs, and the ability to control playback speed through scrolling behavior.",
+    "basicUsage": "Basic Usage",
+    "fullComponent": "Full Component",
+    "cssStyles": "CSS Styles",
+    "codeComments": {
+      "preloadImages": "Preload all images for smooth playback",
+      "updateImage": "Update displayed image based on frame number",
+      "initFirstFrame": "Initialize with the first frame",
+      "setupScroll": "Set up scroll event handler",
+      "getCurrentPosition": "Get current scroll position and section dimensions",
+      "beforeSection": "Before animation section, show first frame",
+      "afterSection": "After animation section, show last frame",
+      "calculatePosition": "Calculate relative position within animation section",
+      "calculatePercentage": "Calculate scroll percentage (0 to 1)",
+      "determineFrame": "Determine which frame to show based on scroll position",
+      "updateIfChanged": "Update only if the frame has changed",
+      "addListener": "Add scroll event listener",
+      "cleanup": "Clean up event listener when component unmounts",
+      "altText": "Scroll animation frame"
+    }
+  }
+}

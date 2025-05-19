@@ -1,0 +1,88 @@
+{
+  "intro": {
+    "title": "Animación por Fotogramas con Desplazamiento",
+    "description": "Desplázate hacia abajo para ver la animación en acción. Este componente crea una animación cuadro por cuadro controlada por la posición de desplazamiento de la página. A medida que te desplazas, el componente transiciona entre imágenes individuales, creando un efecto cinematográfico fluido sin utilizar archivos de video."
+  },
+  "outro": {
+    "title": "Animación Completada",
+    "description": "Gracias por visualizar la demostración. Esta técnica utiliza fotogramas individuales en lugar de archivos de video, brindándote un control preciso sobre la velocidad de reproducción mediante el desplazamiento. Los fotogramas se precargan para un rendimiento óptimo, y la imagen permanece fija en el viewport mientras te desplazas por la sección de animación."
+  },
+  "frameRequirements": {
+    "title": "Requisitos de Fotogramas",
+    "description": "Para utilizar este componente, necesitarás preparar una secuencia de imágenes que representen tu animación:",
+    "point1": "Extrae fotogramas de un video utilizando software como Adobe Premiere, After Effects o herramientas gratuitas como FFMPEG",
+    "point2": "Nombra tus fotogramas secuencialmente (p. ej., frame-001.png, frame-002.png, etc.)",
+    "point3": "Coloca todos los fotogramas en un directorio público accesible para tu aplicación",
+    "point4": "Para un rendimiento óptimo, comprime tus imágenes y considera usar el formato WebP",
+    "point5": "Normalmente 30-60 fotogramas son suficientes para la mayoría de las animaciones"
+  },
+  "examples": {
+    "fullWidthTitle": "Animación a Ancho Completo",
+    "fullWidthDesc": "El contenido se puede superponer directamente sobre una animación de ancho completo. Esto es perfecto para secciones hero o contenido introductorio.",
+    
+    "halfWidthRightTitle": "Animación a la Derecha",
+    "halfWidthRightDesc": "Cuando la animación ocupa el 50% del ancho y se posiciona a la derecha, puedes colocar contenido en el lado izquierdo.",
+    "contentPositioning1": "El contenido se posiciona automáticamente en el lado opuesto a la animación",
+    "contentPositioning2": "Puedes aplicar los estilos que desees a tu contenido",
+    "contentPositioning3": "El componente maneja la disposición automáticamente",
+    
+    "halfWidthLeftTitle": "Animación a la Izquierda",
+    "halfWidthLeftDesc": "Alternativamente, puedes posicionar la animación a la izquierda y tu contenido a la derecha.",
+    "flexibility1": "Ajusta el ancho, altura y posición según necesites",
+    "flexibility2": "El contenido puede contener cualquier elemento de React",
+    "flexibility3": "Los elementos hijos se renderizan en un contenedor junto a la animación"
+  },
+  "usage": {
+    "viewCode": "Ver Código del Componente",
+    "viewOnGithub": "Ver en GitHub",
+    "howToUseTitle": "Cómo Usar Este Componente",
+    "step1": "Extrae fotogramas de tu video y guárdalos secuencialmente en tu carpeta pública",
+    "step2": "Instala el componente en tu proyecto Next.js o React",
+    "step3": "Importa el componente ScrollFrameAnimator en tu página",
+    "step4": "Configura el componente con los detalles de tus fotogramas y preferencias de animación",
+    "propsTitle": "Propiedades del Componente",
+    "propName": "Propiedad",
+    "propType": "Tipo",
+    "propDefault": "Predeterminado",
+    "propDescription": "Descripción",
+    "framesCountDesc": "Número total de frames en la animación",
+    "framesPathDesc": "Ruta a la carpeta que contiene las imágenes de los frames",
+    "framePrefixDesc": "Prefijo del nombre de archivo para cada frame",
+    "frameExtensionDesc": "Extensión de archivo de las imágenes",
+    "animationSectionHeightDesc": "Altura de la sección de animación (controla la longitud del scroll)",
+    "widthDesc": "Ancho del marco de animación (valor CSS como '100%', '400px', etc.)",
+    "heightDesc": "Altura del marco de animación (valor CSS como '100dvh', '400px', etc.)",
+    "positionDesc": "Posición horizontal de la animación ('left', 'right', o 'center')",
+    "objectFitDesc": "Cómo se deben redimensionar los fotogramas para ajustarse a su contenedor",
+    "contentPositionDesc": "Dónde posicionar el contenido proporcionado como children ('left', 'right', 'center', o 'overlay')",
+    "contentModeDesc": "Cómo posicionar el contenido: 'overlay' (encima de la animación) o 'side' (al lado de la animación, se adapta automáticamente)",
+    "backgroundDesc": "Color de fondo o imagen para la sección de animación (cualquier valor CSS válido para background)",
+    "componentCode": "Ejemplo de Código del Componente",
+    "inYourComponent": "En tu componente:",
+    "copyCode": "Copiar Código",
+    "codeCopied": "¡Código copiado al portapapeles!",
+    "implementationDetailsTitle": "Cómo Funciona",
+    "implementationDetails": "El ScrollFrameAnimator funciona rastreando la posición de desplazamiento del usuario dentro de la sección de animación. En lugar de reproducir un video, muestra imágenes individuales que cambian según la posición del scroll. El componente calcula qué fotograma mostrar según el progreso del desplazamiento, creando un efecto de animación fluido que el usuario puede controlar. Todos los fotogramas se precargan en memoria para transiciones instantáneas entre imágenes.",
+    "technicalDetailsTitle": "Detalles Técnicos",
+    "technicalDetails": "Este componente utiliza fotogramas individuales en lugar de archivos de video, lo que permite un control preciso sobre la reproducción mediante la posición de desplazamiento. El enfoque de animación controlada por scroll ofrece varias ventajas: rendimiento consistente en todos los dispositivos, independencia de códecs de video y la capacidad de controlar la velocidad de reproducción mediante el comportamiento de desplazamiento.",
+    "basicUsage": "Uso Básico",
+    "fullComponent": "Componente Completo",
+    "cssStyles": "Estilos CSS",
+    "codeComments": {
+      "preloadImages": "Precargar todas las imágenes para una reproducción fluida",
+      "updateImage": "Actualizar la imagen mostrada según el número de frame",
+      "initFirstFrame": "Inicializar con el primer frame",
+      "setupScroll": "Configurar el manejador de eventos de scroll",
+      "getCurrentPosition": "Obtener la posición actual de scroll y dimensiones de la sección",
+      "beforeSection": "Antes de la sección de animación, mostrar el primer frame",
+      "afterSection": "Después de la sección de animación, mostrar el último frame",
+      "calculatePosition": "Calcular la posición relativa dentro de la sección de animación",
+      "calculatePercentage": "Calcular el porcentaje de scroll (0 a 1)",
+      "determineFrame": "Determinar qué frame mostrar según la posición de scroll",
+      "updateIfChanged": "Actualizar solo si el frame ha cambiado",
+      "addListener": "Añadir el listener de eventos de scroll",
+      "cleanup": "Limpiar el listener de eventos cuando el componente se desmonta",
+      "altText": "Frame de animación por scroll"
+    }
+  }
+}
