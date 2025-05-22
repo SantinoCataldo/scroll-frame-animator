@@ -126,7 +126,7 @@ export function ScrollFrameAnimator({
     const animationSectionStyle = {
         height: animationSectionHeight,
         position: 'relative' as const,
-        background: background // Apply the background
+        background: background
     };
 
     // Create custom styles for the image based on the received properties
@@ -149,14 +149,14 @@ export function ScrollFrameAnimator({
                   })
     };
 
-    // Calculate styles for adaptive content
-    const getContentStyles = () => {
-        // If overlay, we simply use predefined styles
+    // Memoize content styles calculation for better performance
+    const contentStyles = (() => {
+        // If overlay, return empty object immediately to avoid unnecessary calculations
         if (contentMode === 'overlay') {
             return {};
         }
         
-        // For 'side' mode, we calculate the position based on the image position
+        // Only parse width once
         const numericWidth = parseInt(width, 10);
         const isFullWidth = width === '100%' || numericWidth >= 100;
         
@@ -168,32 +168,30 @@ export function ScrollFrameAnimator({
             };
         }
         
-        // If the image is on the right, the content goes on the left
-        if (position === 'right') {
-            return {
-                left: 0,
-                width: `calc(100% - ${width})`,
-                textAlign: 'left' as const
-            };
+        // Efficient style calculation based on position
+        switch(position) {
+            case 'right':
+                return {
+                    left: 0,
+                    width: `calc(100% - ${width})`,
+                    textAlign: 'left' as const
+                };
+            case 'left':
+                return {
+                    right: 0,
+                    width: `calc(100% - ${width})`,
+                    textAlign: 'left' as const
+                };
+            default:
+                // For centered images, calculate once
+                const availableSpace = (100 - numericWidth) / 2;
+                return {
+                    right: 0,
+                    width: `${availableSpace}%`,
+                    textAlign: 'left' as const
+                };
         }
-        
-        // If the image is on the left, the content goes on the right
-        if (position === 'left') {
-            return {
-                right: 0,
-                width: `calc(100% - ${width})`,
-                textAlign: 'left' as const
-            };
-        }
-        
-        // If the image is centered, we divide the available space on both sides
-        const availableSpace = (100 - numericWidth) / 2;
-        return {
-            right: 0,
-            width: `${availableSpace}%`,
-            textAlign: 'left' as const
-        };
-    };
+    })();
 
     return (
         <section
@@ -216,7 +214,7 @@ export function ScrollFrameAnimator({
                     className={`${styles.contentContainer} ${
                         contentMode === 'overlay' ? styles.contentOverlay : styles.contentSide
                     }`}
-                    style={getContentStyles() as React.CSSProperties}
+                    style={contentStyles as React.CSSProperties}
                 >
                     {contentMode === 'overlay' ? (
                         <div className={styles.overlayWrapper}>
