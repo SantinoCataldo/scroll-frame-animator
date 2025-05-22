@@ -8,9 +8,22 @@ import esMessages from '@/messages/es.json';
 import ComponentExampleCode from '@/components/CompleteExampleCode';
 
 export default function Home() {
+  const [isMobile, setIsMobile] = useState(
+    typeof window !== 'undefined' ? window.innerWidth <= 768 : false
+  );
+  
   const [language, setLanguage] = useState('en');
   const [messages, setMessages] = useState(enMessages);
   const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -137,7 +150,7 @@ export default function Home() {
       </ScrollFrameAnimator>
 
       <ScrollFrameAnimator
-        width="70%"
+        width={isMobile ? '35%' : '65%'}
         position="right"
         framesPath="./frames2"
         framesCount={18}
@@ -156,7 +169,7 @@ export default function Home() {
       </ScrollFrameAnimator>
 
       <ScrollFrameAnimator
-        width="50%"
+        width={isMobile ? '40%' : '50%'}
         position="left"
         framesPath="./frames2"
         framesCount={18}

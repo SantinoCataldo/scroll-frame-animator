@@ -35,6 +35,16 @@
   justify-content: center;
 }
 
+@media (max-width: 768px) {
+  .content {
+    width: 100%;
+  }
+
+  .usageInstructions {
+    width: 100%;
+  }
+}
+
 .content h1,
 .content h2 {
   margin-bottom: 1rem;
@@ -182,7 +192,8 @@
   gap: 16px;
 }
 
-.primaryButton, .secondaryButton {
+.primaryButton,
+.secondaryButton {
   padding: 12px 24px;
   border-radius: 30px;
   font-weight: 500;
@@ -220,10 +231,10 @@
 
 .overlayContent {
   border-radius: 18px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(10px);
   padding: 20px;
-  border: 1.5px solid rgba(255,255,255,0.08);
+  border: 1.5px solid rgba(255, 255, 255, 0.08);
   margin: 32px auto;
   max-width: 800px;
   color: #f3f3f3;
@@ -245,7 +256,8 @@
   font-size: 14px;
 }
 
-.propertyTable th, .propertyTable td {
+.propertyTable th,
+.propertyTable td {
   padding: 12px 16px;
   text-align: left;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -454,16 +466,22 @@
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes slideUp {
-  from { 
+  from {
     opacity: 0;
     transform: translateY(20px);
   }
-  to { 
+
+  to {
     opacity: 1;
     transform: translateY(0);
   }
@@ -474,106 +492,107 @@
     background: white;
     color: black;
   }
-  
+
   .secondaryButton {
     color: white;
     border-color: rgba(255, 255, 255, 0.2);
   }
-  
+
   .primaryButton:hover {
     background: #e0e0e0;
   }
-  
+
   .secondaryButton:hover {
     border-color: rgba(255, 255, 255, 0.4);
     background: rgba(255, 255, 255, 0.1);
   }
-  
+
   .usageInstructions {
     background: rgba(255, 255, 255, 0.05);
   }
-  
+
   .propertyTable th {
     background: rgba(255, 255, 255, 0.1);
   }
-  
-  .propertyTable td, .propertyTable th {
+
+  .propertyTable td,
+  .propertyTable th {
     border-color: rgba(255, 255, 255, 0.1);
   }
-  
+
   .propertyTable tr:hover td {
     background: rgba(255, 255, 255, 0.05);
   }
-  
+
   .codeModalContent {
     background: #1a1a1a;
     color: white;
   }
-  
+
   .codeVersionTabs {
     border-bottom-color: rgba(255, 255, 255, 0.1);
   }
-  
+
   .codeVersionTab {
     color: #aaa;
   }
-  
+
   .codeVersionTab:hover {
     color: #fff;
     background: rgba(255, 255, 255, 0.05);
   }
-  
+
   .codeVersionTab.activeVersionTab {
     color: #fff;
     border-bottom-color: #fff;
   }
-  
+
   .codeTabs {
     border-bottom-color: rgba(255, 255, 255, 0.1);
   }
-  
+
   .codeTab {
     color: #aaa;
   }
-  
+
   .codeTab:hover {
     color: #fff;
     background: rgba(255, 255, 255, 0.05);
   }
-  
+
   .codeTab.activeTab {
     color: #fff;
     border-bottom-color: #fff;
   }
-  
+
   .codeBlock {
     background: #282c34;
     overflow-y: auto;
   }
-  
+
   .codeBlock pre code {
     color: #e6e6e6;
   }
-  
+
   .copyButton {
     background: rgba(30, 30, 30, 0.9);
     border-color: rgba(255, 255, 255, 0.2);
     color: white;
   }
-  
+
   .copyButton:hover {
     background: #333;
     border-color: rgba(255, 255, 255, 0.4);
   }
-  
+
   .implementationDetails {
     border-color: rgba(255, 255, 255, 0.1);
   }
-  
+
   .closeButton {
     color: #aaa;
   }
-  
+
   .closeButton:hover {
     background: rgba(255, 255, 255, 0.1);
     color: white;
@@ -623,19 +642,20 @@
 }
 
 @media (prefers-color-scheme: dark) {
+
   .frameRequirements,
   .technicalDetails {
     background: rgba(255, 255, 255, 0.05);
   }
-  
+
   .frameRequirements {
     border-left-color: #38bdf8;
   }
-  
+
   .frameRequirements h3 {
     color: #38bdf8;
   }
-  
+
   .requirementsList li::before {
     color: #38bdf8;
   }

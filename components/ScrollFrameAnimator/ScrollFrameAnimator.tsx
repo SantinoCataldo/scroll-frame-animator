@@ -40,9 +40,9 @@ export function ScrollFrameAnimator({
     framesPath = './frames',
     framePrefix = 'ezgif-frame-',
     frameExtension = 'png',
-    animationSectionHeight = '500vh',
+    animationSectionHeight = '500dvh',
     width = '100%',
-    height = '100vh',
+    height = '100dvh',
     position = 'center',
     objectFit = 'cover',
     children,
@@ -126,21 +126,21 @@ export function ScrollFrameAnimator({
     const animationSectionStyle = {
         height: animationSectionHeight,
         position: 'relative' as const,
-        background: background // Aplicar el fondo
+        background: background // Apply the background
     };
 
-    // Crear estilos personalizados para la imagen según las propiedades recibidas
+    // Create custom styles for the image based on the received properties
     const frameStyle = {
         width: width,
         height: height,
         objectFit: objectFit,
-        // Para elementos sticky, necesitamos usar propiedades diferentes para el posicionamiento horizontal
+        // For sticky elements, we need to use different properties for horizontal positioning
         ...(position === 'right' 
             ? { right: '0', left: '100%' } 
             : position === 'left' 
                 ? { left: '0', right: 'auto' } 
                 : { 
-                    // Para centrado, usamos un enfoque diferente que funciona con cualquier ancho
+                    // For centering, we use a different approach that works with any width
                     left: '0', 
                     right: '0',
                     marginLeft: 'auto',
@@ -149,18 +149,18 @@ export function ScrollFrameAnimator({
                   })
     };
 
-    // Cálculo de estilos para el contenido adaptativo
+    // Calculate styles for adaptive content
     const getContentStyles = () => {
-        // Si es overlay, simplemente usamos los estilos predefinidos
+        // If overlay, we simply use predefined styles
         if (contentMode === 'overlay') {
             return {};
         }
         
-        // Para modo 'side', calculamos la posición en función de la posición de la imagen
+        // For 'side' mode, we calculate the position based on the image position
         const numericWidth = parseInt(width, 10);
         const isFullWidth = width === '100%' || numericWidth >= 100;
         
-        // Si la imagen ocupa todo el ancho, el contenido debe superponerse
+        // If the image takes up the full width, the content should overlap
         if (isFullWidth) {
             return {
                 width: '100%',
@@ -168,7 +168,7 @@ export function ScrollFrameAnimator({
             };
         }
         
-        // Si la imagen está a la derecha, el contenido va a la izquierda
+        // If the image is on the right, the content goes on the left
         if (position === 'right') {
             return {
                 left: 0,
@@ -177,7 +177,7 @@ export function ScrollFrameAnimator({
             };
         }
         
-        // Si la imagen está a la izquierda, el contenido va a la derecha
+        // If the image is on the left, the content goes on the right
         if (position === 'left') {
             return {
                 right: 0,
@@ -186,7 +186,7 @@ export function ScrollFrameAnimator({
             };
         }
         
-        // Si la imagen está centrada, dividimos el espacio disponible a ambos lados
+        // If the image is centered, we divide the available space on both sides
         const availableSpace = (100 - numericWidth) / 2;
         return {
             right: 0,
